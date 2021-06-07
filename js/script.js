@@ -7,3 +7,32 @@
 // Consigli del giorno
 // Scriviamo sempre in italiano i passaggi che vogliamo fare
 // Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
+
+// palidroma
+
+var stringa = prompt("Inserisci la parola che vuoi verificare che sia palidroma.");
+
+var risultato = palidroma(stringa);
+
+if (risultato == "true"){
+    document.getElementById("parola").innerHTML = "La parola " + stringa + " è palidroma";
+} else {
+    document.getElementById("parola").innerHTML = "La parola " + stringa + " non è palidroma";
+
+}
+
+// funzioni
+
+function palidroma(str) {
+
+    var len = str.length;
+    var mid = Math.floor(len/2);
+
+    for ( var i = 0; i < mid; i++ ) {
+        if (str[i] !== str[len - 1 - i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
