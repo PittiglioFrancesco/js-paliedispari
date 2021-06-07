@@ -10,29 +10,55 @@
 
 // palidroma
 
-var stringa = prompt("Inserisci la parola che vuoi verificare che sia palidroma.");
+// var stringa = prompt("Inserisci la parola che vuoi verificare che sia palidroma.");
 
-var risultato = palidroma(stringa);
+// var risultato = palidroma(stringa);
 
-if (risultato == "true"){
-    document.getElementById("parola").innerHTML = "La parola " + stringa + " è palidroma";
+// if (risultato == "true"){
+//     document.getElementById("parola").innerHTML = "La parola " + stringa + " è palidroma";
+// } else {
+//     document.getElementById("parola").innerHTML = "La parola " + stringa + " non è palidroma";
+
+// }
+
+// // funzioni
+
+// function palidroma(str) {
+
+//     var len = str.length;
+//     var mid = Math.floor(len/2);
+
+//     for ( var i = 0; i < mid; i++ ) {
+//         if (str[i] !== str[len - 1 - i]) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// }
+
+// pari o dispari
+
+var scelta = prompt("Pari o Dispari?");
+
+var n = prompt ("Inserisci un numero da 1 a 5");
+
+var r = Math.floor(Math.random() * 6) + 1;
+console.log(r)
+
+var ris = operazione(r, n);
+
+if ((somma % 2 == 0 && scelta == "Pari") || (somma % 2 != 0 && scelta == "Dispari")) {
+    document.getElementById("somma").innerHTML = "HAI VINTO!";
 } else {
-    document.getElementById("parola").innerHTML = "La parola " + stringa + " non è palidroma";
-
+    document.getElementById("somma").innerHTML = "HAI PERSO...";
 }
 
-// funzioni
+//funzioni
 
-function palidroma(str) {
+function operazione(random, number){
 
-    var len = str.length;
-    var mid = Math.floor(len/2);
+    var somma = random + number;
+    return somma;
 
-    for ( var i = 0; i < mid; i++ ) {
-        if (str[i] !== str[len - 1 - i]) {
-            return false;
-        }
-    }
-
-    return true;
 }
