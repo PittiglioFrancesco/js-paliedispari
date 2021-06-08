@@ -40,15 +40,20 @@
 // pari o dispari
 
 var scelta = prompt("Pari o Dispari?");
+console.log("La tua scelta è stata " + scelta)
 
-var n = prompt ("Inserisci un numero da 1 a 5");
+var n = parseInt(prompt("Inserisci un numero da 1 a 5"));
+console.log("Il numero da te scelto è " + n)
 
-var r = Math.floor(Math.random() * 6) + 1;
-console.log(r)
+var r = getRndInteger(1, 5);
+console.log("Il numero della CPU è " + r)
 
-var ris = operazione(r, n);
+var sum = somma(r, n);
+console.log("La somma dei due numeri è " + sum)
 
-if ((somma % 2 == 0 && scelta == "Pari") || (somma % 2 != 0 && scelta == "Dispari")) {
+var ris = pariDispari(sum);
+
+if (ris == scelta) {
     document.getElementById("somma").innerHTML = "HAI VINTO!";
 } else {
     document.getElementById("somma").innerHTML = "HAI PERSO...";
@@ -56,9 +61,20 @@ if ((somma % 2 == 0 && scelta == "Pari") || (somma % 2 != 0 && scelta == "Dispar
 
 //funzioni
 
-function operazione(random, number){
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
-    var somma = random + number;
-    return somma;
+function somma(x, y){
+    return x + y;
+}
 
+function pariDispari(number){
+    if (number % 2 == 0) {
+        var PeD = "Pari"
+    } else {
+        var PeD = "Dispari"
+    }
+
+    return PeD
 }
