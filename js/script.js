@@ -10,71 +10,74 @@
 
 // palidroma
 
-// var stringa = prompt("Inserisci la parola che vuoi verificare che sia palidroma.");
+var parola = prompt('Inserisci una parola');
+parola = parola.toLowerCase();
 
-// var risultato = palidroma(stringa);
 
-// if (risultato == "true"){
-//     document.getElementById("parola").innerHTML = "La parola " + stringa + " è palidroma";
-// } else {
-//     document.getElementById("parola").innerHTML = "La parola " + stringa + " non è palidroma";
+var parolaInversa = inverti(parola);
+console.log(parolaInversa);
 
-// }
+if(parola == parolaInversa){
+    console.log('palindroma');
+    document.getElementById("parola").innerHTML = "La parola " + parola * " è palindroma!"
+} else {
+    console.log('non palindroma');
+    document.getElementById("parola").innerHTML = "La parola " + parola * " non è palindroma!"
 
-// // funzioni
+}
 
-// function palidroma(str) {
+function inverti(stringaTesto){
+    var inversa = '';
+    var lunghezzaStringa = stringaTesto.length;
 
-//     var len = str.length;
-//     var mid = Math.floor(len/2);
+    for(var i = lunghezzaStringa - 1; i >= 0; i--){
+        console.log(stringaTesto[i]);
+        inversa += stringaTesto[i];
+    }
 
-//     for ( var i = 0; i < mid; i++ ) {
-//         if (str[i] !== str[len - 1 - i]) {
-//             return false;
-//         }
-//     }
+    return inversa;
+}
 
-//     return true;
-// }
+
 
 // pari o dispari
 
-var scelta = prompt("Pari o Dispari?");
-console.log("La tua scelta è stata " + scelta)
+// var scelta = prompt("Pari o Dispari?");
+// console.log("La tua scelta è stata " + scelta)
 
-var n = parseInt(prompt("Inserisci un numero da 1 a 5"));
-console.log("Il numero da te scelto è " + n)
+// var n = parseInt(prompt("Inserisci un numero da 1 a 5"));
+// console.log("Il numero da te scelto è " + n)
 
-var r = getRndInteger(1, 5);
-console.log("Il numero della CPU è " + r)
+// var r = getRndInteger(1, 5);
+// console.log("Il numero della CPU è " + r)
 
-var sum = somma(r, n);
-console.log("La somma dei due numeri è " + sum)
+// var sum = somma(r, n);
+// console.log("La somma dei due numeri è " + sum)
 
-var ris = pariDispari(sum);
+// var ris = pariDispari(sum);
 
-if (ris == scelta) {
-    document.getElementById("somma").innerHTML = "HAI VINTO!";
-} else {
-    document.getElementById("somma").innerHTML = "HAI PERSO...";
-}
+// if (ris == scelta) {
+//     document.getElementById("somma").innerHTML = "HAI VINTO!";
+// } else {
+//     document.getElementById("somma").innerHTML = "HAI PERSO...";
+// }
 
-//funzioni
+// //funzioni
 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+// function getRndInteger(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) ) + min;
+// }
 
-function somma(x, y){
-    return x + y;
-}
+// function somma(x, y){
+//     return x + y;
+// }
 
-function pariDispari(number){
-    if (number % 2 == 0) {
-        var PeD = "Pari"
-    } else {
-        var PeD = "Dispari"
-    }
+// function pariDispari(number){
+//     if (number % 2 == 0) {
+//         var PeD = "Pari"
+//     } else {
+//         var PeD = "Dispari"
+//     }
 
-    return PeD
-}
+//     return PeD
+// }
